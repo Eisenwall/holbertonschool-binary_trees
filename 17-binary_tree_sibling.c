@@ -1,10 +1,10 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_sibling - Возвращает указатель на брата узла
- * @node: указатель на узел, для которого ищем брата
+ * binary_tree_sibling - Finds the sibling of a node
+ * @node: Pointer to the node to find the sibling of
  *
- * Return: указатель на брата, или NULL если его нет
+ * Return: Pointer to the sibling node, or NULL if no sibling
  */
 binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 {
@@ -16,5 +16,6 @@ binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 
 	if (node->parent->right && node->parent->right != node)
 		return (node->parent->right);
+
 	return (NULL);
 }
