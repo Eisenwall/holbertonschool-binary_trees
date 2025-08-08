@@ -4,7 +4,8 @@
  * binary_tree_balance - Measures the balance factor of a binary tree node
  * @tree: Pointer to the node to measure balance factor
  *
- * Return: Balance factor (right subtree height - left subtree height), or 0 if tree is NULL
+ * Return: Balance factor (left subtree height - right subtree height), or
+ * 0 if tree is NULL
  */
 static size_t _height(const binary_tree_t *tree)
 {
