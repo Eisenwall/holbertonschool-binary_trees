@@ -1,10 +1,10 @@
 #include "binary_trees.h"
 
 /**
- * _height - Helper function to compute height of a binary tree
- * @tree: Pointer to the root node
+ * binary_tree_balance - Measures the balance factor of a binary tree node
+ * @tree: Pointer to the node to measure balance factor
  *
- * Return: Height of the tree, or 0 if tree is NULL
+ * Return: Balance factor (right subtree height - left subtree height), or 0 if tree is NULL
  */
 static size_t _height(const binary_tree_t *tree)
 {
@@ -20,6 +20,7 @@ static size_t _height(const binary_tree_t *tree)
 		return (left_height + 1);
 	return (right_height + 1);
 }
+
 int binary_tree_balance(const binary_tree_t *tree)
 {
 	if (tree == NULL)
