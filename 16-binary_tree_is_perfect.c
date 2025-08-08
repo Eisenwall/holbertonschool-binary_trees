@@ -4,7 +4,7 @@
  * _height - Measures the height of a binary tree
  * @tree: Pointer to the root node of the tree
  *
- * Return: Height of the tree, or 0 if tree is NULL
+ * Return: Height of the tree
  */
 static size_t _height(const binary_tree_t *tree)
 {
@@ -16,16 +16,18 @@ static size_t _height(const binary_tree_t *tree)
 	left_height = _height(tree->left);
 	right_height = _height(tree->right);
 
-	return ((left_height > right_height ? left_height : right_height) + 1);
+	if (left_height > right_height)
+		return (left_height + 1);
+	return (right_height + 1);
 }
 
 /**
  * _is_perfect - Checks if a binary tree is perfect recursively
- * @tree: Pointer to the root node
+ * @tree: Pointer to the root node of the tree
  * @depth: Depth of the tree
- * @level: Current level of node
+ * @level: Current level of the node
  *
- * Return: 1 if perfect, 0 otherwise
+ * Return: 1 if perfect, 0 if not
  */
 static int _is_perfect(const binary_tree_t *tree, size_t depth, size_t level)
 {
@@ -39,14 +41,14 @@ static int _is_perfect(const binary_tree_t *tree, size_t depth, size_t level)
 		return (0);
 
 	return (_is_perfect(tree->left, depth, level + 1) &&
-	        _is_perfect(tree->right, depth, level + 1));
+		_is_perfect(tree->right, depth, level + 1));
 }
 
 /**
  * binary_tree_is_perfect - Checks if a binary tree is perfect
- * @tree: Pointer to the root node
+ * @tree: Pointer to the root node of the tree
  *
- * Return: 1 if perfect, 0 if NULL or not perfect
+ * Return: 1 if perfect, 0 if not or tree is NULL
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
